@@ -12,7 +12,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Extra Widget Archive
- * Plugin URI:        www.extralagence.com
+ * Plugin URI:        https://github.com/extralagence/extra-widget-archive
  * Description:       Plugin Extra. Add an archive's widget
  * Version:           1.0.0
  * Author:            Vincent SAISSET
@@ -21,7 +21,7 @@
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages
- * GitHub Plugin URI: https://github.com/vaince/<repo>
+ * GitHub Plugin URI: https://github.com/extralagence/extra-widget-archive<repo>
  */
 
 class Extra_Widget_Archive extends WP_Widget {
