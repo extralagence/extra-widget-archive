@@ -60,10 +60,10 @@ class Extra_Widget_Archive extends WP_Widget {
 
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'Extra archive', $this->get_widget_slug() ),
+			__( 'Archives (Extra)', $this->get_widget_slug() ),
 			array(
 				'classname'  => $this->get_widget_slug().'-class',
-				'description' => __( "Plugin Extra. Ajoute un widget d'archive", $this->get_widget_slug() )
+				'description' => __( "Archives triées par onglet", $this->get_widget_slug() )
 			)
 		);
 
@@ -121,12 +121,9 @@ class Extra_Widget_Archive extends WP_Widget {
 		
 		// go on with your widget logic, put everything into a string and …
 
-
 		extract( $args, EXTR_SKIP );
 
 		$widget_string = $before_widget;
-
-		// TODO: Here is where you manipulate your widget's values based on their input fields
 		ob_start();
 		include( plugin_dir_path( __FILE__ ) . 'views/widget.php' );
 		$widget_string .= ob_get_clean();
@@ -152,13 +149,14 @@ class Extra_Widget_Archive extends WP_Widget {
 	 * @param array new_instance The new instance of values to be generated via the update.
 	 * @param array old_instance The previous instance of values before the update.
 	 */
-	public function update( $new_instance, $old_instance ) {
+	public function update($new_instance, $old_instance) {
 
-		$instance = $old_instance;
+		$old_instance['title'] = strip_tags($new_instance['title']);
+		$old_instance['show_by_date'] = $new_instance['show_by_date'];
+		$old_instance['show_by_popularity'] = $new_instance['show_by_popularity'];
+		$old_instance['show_by_category'] = $new_instance['show_by_category'];
 
-		// TODO: Here is where you update your widget's old values with the new, incoming values
-
-		return $instance;
+		return $old_instance;
 
 	} // end widget
 
@@ -169,12 +167,15 @@ class Extra_Widget_Archive extends WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		// TODO: Define default values for your variables
 		$instance = wp_parse_args(
-			(array) $instance
+			(array) $instance,
+			array(
+				'title' => '',
+				'show_by_date' => 1,
+				'show_by_popularity' => 1,
+				'show_by_category' => 1,
+			)
 		);
-
-		// TODO: Store the values of the widget in their own variable
 
 		// Display the admin form
 		include( plugin_dir_path(__FILE__) . 'views/admin.php' );
@@ -217,7 +218,7 @@ class Extra_Widget_Archive extends WP_Widget {
 	 */
 	public function register_admin_styles() {
 
-		wp_enqueue_style( $this->get_widget_slug().'-admin-styles', plugins_url( 'css/admin.css', __FILE__ ) );
+		wp_enqueue_style( $this->get_widget_slug().'-admin-styles', plugins_url( 'css/admin.less', __FILE__ ) );
 
 	} // end register_admin_styles
 
@@ -235,7 +236,7 @@ class Extra_Widget_Archive extends WP_Widget {
 	 */
 	public function register_widget_styles() {
 
-		wp_enqueue_style( $this->get_widget_slug().'-widget-styles', plugins_url( 'css/widget.css', __FILE__ ) );
+		wp_enqueue_style( $this->get_widget_slug().'-widget-styles', plugins_url( 'css/widget.less', __FILE__ ) );
 
 	} // end register_widget_styles
 

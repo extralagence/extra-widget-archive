@@ -1,0 +1,84 @@
+/* This stylesheet is used to style the public view of the widget. */
+
+.extra-widget-archive-class .extra-widget-archive-content > * {
+	display: none;
+}
+
+.extra-widget-archive-class .extra-widget-archive-content > .active {
+	display: block;
+}
+
+
+.extra-widget-archive-handles {
+	margin: 6px 0 10px 0;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+
+	-webkit-box-align: start;
+	-moz-box-align: start;
+	box-align: start;
+}
+.extra-widget-archive-handles > li {
+	list-style: none;
+	width: 100%;
+
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+.extra-widget-archive-handles > li > a {
+	border-bottom: 1px solid @grey;
+	color: @dark;
+	display: block;
+	font-size: 12px;
+	line-height: 30px;
+	padding-bottom: 4px;
+	text-align: center;
+	width: 100%;
+}
+.extra-widget-archive-handles > li.active > a {
+	color: @highlight;
+	border-bottom: 1px solid @highlight;
+}
+.extra-widget-archive-handles > li > a:hover {
+	color: @black;
+	border-bottom: 1px solid @black;
+}
+
+.extra-widget-archive-content {
+	margin: 0 10px
+}
+.extra-widget-archive-content > div li {
+	list-style: none;
+}
+.extra-widget-archive-content > div li > a {
+	font-size: 12px;
+	position: relative;
+	margin-left: 10px;
+	display: block;
+}
+.extra-widget-archive-content > div li > a:before {
+	font-family: 'extra';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	content: '\e603';
+	top: 5px;
+	left: -10px;
+	font-size: 10px;
+	position: absolute;
+}
+
+.extra-widget-archive-by-date a {
+	text-transform: capitalize;
+}
