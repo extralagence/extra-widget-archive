@@ -4,11 +4,11 @@
  *
  * The WordPress Widget Boilerplate is an organized, maintainable boilerplate for building widgets using WordPress best practices.
  *
- * @package   Widget_Name
- * @author    Your Name <email@example.com>
+ * @package   Extra_Widget_Archive
+ * @author    Vincent Saïsset <vs@extralagence.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
+ * @link      www.extralagence.com
+ * @copyright 2014 Extra
  *
  * @wordpress-plugin
  * Plugin Name:       Extra Widget Archive
